@@ -1,0 +1,3 @@
+This is an ardiuno code that was created to run on sparkfun pro micro. Created to imitate the works of USB Rubber Ducky.Once the micro controller is inserted, windows defender is deactivated, a windows powershell is created.
+
+A payload created is downloaded from a remote server and ran to create a reverse shell back to the remote attacker. Exploit the machine from there...
